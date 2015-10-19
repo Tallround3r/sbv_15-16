@@ -1,5 +1,3 @@
-
-
 package sbv;
 
 import java.io.IOException;
@@ -11,7 +9,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class Oberflaeche extends javax.swing.JFrame {
-    
+
     static String momentaneKopie;
     static String schuelerId;
     static int schuelerInKlasse;
@@ -21,111 +19,101 @@ public class Oberflaeche extends javax.swing.JFrame {
     static int speichern = 0;
     static int skBearbeiten = 0;
     Connection conn = null;
-    
+
     private void UpdateTable(ArrayList<String> data) {
-        
-        if(currentPanel == 2) {
-        String col[] = {"Nachname", "Vorname", "Geburtsdatum"};
-        DefaultTableModel schuelerModel = new DefaultTableModel(col, 0) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-            //all cells false
-            return false;
+
+        if (currentPanel == 2) {
+            String col[] = {"Nachname", "Vorname", "Geburtsdatum"};
+            DefaultTableModel schuelerModel = new DefaultTableModel(col, 0) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //all cells false
+                    return false;
+                }
+            };
+
+            for (int i = 0; i <= data.size() - 4; i = i + 4) {
+                Object[] obj = {data.get(i + 1), data.get(i), data.get(i + 2)};
+                schuelerModel.addRow(obj);
             }
-        };
-        
-        for(int i=0; i<= data.size()-4;i=i+4) {
-            Object[] obj = {data.get(i+1),data.get(i),data.get(i+2)};
-            schuelerModel.addRow(obj);
+            schuelerTbl.setModel(schuelerModel);
         }
-        schuelerTbl.setModel(schuelerModel);
-        }
-        
-        
-        
-        if(currentPanel == 3) {
-        String col[] = {"Label", "ISBN", "Preis", "Kaufbuch"};
-        DefaultTableModel buecherModel = new DefaultTableModel(col, 0){
-            @Override
-            public boolean isCellEditable(int row, int column) {
-            //all cells false
-            return false;
+
+        if (currentPanel == 3) {
+            String col[] = {"Label", "ISBN", "Preis", "Kaufbuch"};
+            DefaultTableModel buecherModel = new DefaultTableModel(col, 0) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //all cells false
+                    return false;
+                }
+            };
+
+            for (int i = 0; i <= data.size() - 4; i = i + 4) {
+                Object[] obj = {data.get(i), data.get(i + 1), data.get(i + 2), data.get(i + 3)};
+                buecherModel.addRow(obj);
             }
-        };
-        
-        for(int i=0; i<= data.size()-4; i=i+4) {
-            Object[] obj = {data.get(i),data.get(i+1),data.get(i+2),data.get(i+3)};
-            buecherModel.addRow(obj);
+            buecherTbl.setModel(buecherModel);
         }
-        buecherTbl.setModel(buecherModel);
-        }
-        
-        
-        
-        if(currentPanel == 4) {
-        String col[] = {"Label", "ISBN"};
-        DefaultTableModel buecherKlasseModel = new DefaultTableModel(col, 0){
-            @Override
-            public boolean isCellEditable(int row, int column) {
-            //all cells false
-            return false;
+
+        if (currentPanel == 4) {
+            String col[] = {"Label", "ISBN"};
+            DefaultTableModel buecherKlasseModel = new DefaultTableModel(col, 0) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //all cells false
+                    return false;
+                }
+            };
+
+            for (int i = 0; i <= data.size() - 2; i = i + 2) {
+                Object[] obj = {data.get(i), data.get(i + 1)};
+                buecherKlasseModel.addRow(obj);
             }
-        };
-        
-        for(int i=0; i<= data.size()-2; i=i+2) {
-            Object[] obj = {data.get(i), data.get(i+1)};
-            buecherKlasseModel.addRow(obj);
+            buecherKlassenTbl.setModel(buecherKlasseModel);
         }
-        buecherKlassenTbl.setModel(buecherKlasseModel);
-        }
-        
-        
-        
-        if(currentPanel == 5) {
-        String col[] = {"Label", "ISBN"};
-        DefaultTableModel buecherKlasseModel = new DefaultTableModel(col, 0){
-            @Override
-            public boolean isCellEditable(int row, int column) {
-            //all cells false
-            return false;
+
+        if (currentPanel == 5) {
+            String col[] = {"Label", "ISBN"};
+            DefaultTableModel buecherKlasseModel = new DefaultTableModel(col, 0) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //all cells false
+                    return false;
+                }
+            };
+
+            for (int i = 0; i <= data.size() - 2; i = i + 2) {
+                Object[] obj = {data.get(i), data.get(i + 1)};
+                buecherKlasseModel.addRow(obj);
             }
-        };
-        
-        for(int i=0; i<= data.size()-2; i=i+2) {
-            Object[] obj = {data.get(i), data.get(i+1)};
-            buecherKlasseModel.addRow(obj);
+            buecherInKlasseTbl.setModel(buecherKlasseModel);
         }
-        buecherInKlasseTbl.setModel(buecherKlasseModel);
-        }
-        
-        
-        
-        if(currentPanel == 6) {
-        String col[] = {"Label", "ISBN", "Preis", "Kaufbuch"};
-        DefaultTableModel buecherModel = new DefaultTableModel(col, 0){
-            @Override
-            public boolean isCellEditable(int row, int column) {
-            //all cells false
-            return false;
+
+        if (currentPanel == 6) {
+            String col[] = {"Label", "ISBN", "Preis", "Kaufbuch"};
+            DefaultTableModel buecherModel = new DefaultTableModel(col, 0) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //all cells false
+                    return false;
+                }
+            };
+
+            for (int i = 0; i <= data.size() - 4; i = i + 4) {
+                Object[] obj = {data.get(i), data.get(i + 1), data.get(i + 2), data.get(i + 3)};
+                buecherModel.addRow(obj);
             }
-        };
-        
-        for(int i=0; i<= data.size()-4; i=i+4) {
-            Object[] obj = {data.get(i),data.get(i+1),data.get(i+2),data.get(i+3)};
-            buecherModel.addRow(obj);
-        }
-        buecherFKlassenTbl.setModel(buecherModel);
+            buecherFKlassenTbl.setModel(buecherModel);
         }
     }
-    
+
     public Oberflaeche() {
         initComponents();
         schuelerCount.setText(Home.StudentsCount());
         freieBuecher.setText(Home.CauchtCopyCount());
     }
 
-    
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -1077,7 +1065,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         ArrayList<String> ids = new ArrayList();
         ids = Classes.getClassIDs();
         ArrayList<String> names = new ArrayList<>();
-        for(String s: ids) {
+        for (String s : ids) {
             names.add(Classes.getClassName(s));
         }
         klassenList.setListData(names.toArray());
@@ -1095,56 +1083,55 @@ public class Oberflaeche extends javax.swing.JFrame {
         klassenList.ensureIndexIsVisible(index);
         ArrayList<String> klasse = Classes.classList(momentaneKlasse);
         UpdateTable(klasse);
-        schuelerInKlasse = klasse.size()/4;
+        schuelerInKlasse = klasse.size() / 4;
     }//GEN-LAST:event_klassenListMouseClicked
 
     private void schuelerTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_schuelerTblMouseClicked
         schuelerRow = schuelerTbl.getSelectedRow();
         ArrayList<String> data = Classes.classList(momentaneKlasse);
-        schuelerId = data.get(schuelerRow*4+3);
-        schuelerName.setText(Students.SingelStudent(schuelerId, 1) +" " +Students.SingelStudent(schuelerId, 2));
+        schuelerId = data.get(schuelerRow * 4 + 3);
+        schuelerName.setText(Students.SingelStudent(schuelerId, 1) + " " + Students.SingelStudent(schuelerId, 2));
         schuelerGeburt.setText(Students.SingelStudent(schuelerId, 3));
         schuelerZurueckAnzahl.setText(Students.CopiesToReturn(schuelerId));
         schuelerKlassenList.setListData(Students.SingelStudentClasses(schuelerId).toArray());
-        
+
         String col[] = {"Label", "Gekauft", "Ausgegeben", "Bezahlt"};
-        DefaultTableModel schuelerBuecherModel = new DefaultTableModel(col, 0){
+        DefaultTableModel schuelerBuecherModel = new DefaultTableModel(col, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
-            //all cells false
-            return false;
+                //all cells false
+                return false;
             }
         };
-        
+
         ArrayList<String> buecher = Students.BookList(schuelerId);
-        
-        for(int i=0; i<= buecher.size()-4; i=i+4) {
-            Object[] obj = {buecher.get(i),buecher.get(i+1),Date.ToNormal(buecher.get(i+2)),buecher.get(i+3)};
+
+        for (int i = 0; i <= buecher.size() - 4; i = i + 4) {
+            Object[] obj = {buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3)};
             schuelerBuecherModel.addRow(obj);
         }
-        schuelerBuecherTbl.setModel(schuelerBuecherModel);  
-        
-        if(evt.getClickCount()==2) {
+        schuelerBuecherTbl.setModel(schuelerBuecherModel);
+
+        if (evt.getClickCount() == 2) {
             basePanel.setSelectedIndex(2);
         }
-        
-       
-        if(schuelerRow == 0)
-        schuelerZurueck.setVisible(false);
-        else {
-        schuelerZurueck.setVisible(true);
+
+        if (schuelerRow == 0) {
+            schuelerZurueck.setVisible(false);
+        } else {
+            schuelerZurueck.setVisible(true);
         }
-        
-        if(schuelerRow == schuelerInKlasse -1)
-        schuelerWeiter.setVisible(false);
-        else{
-        schuelerWeiter.setVisible(true);
+
+        if (schuelerRow == schuelerInKlasse - 1) {
+            schuelerWeiter.setVisible(false);
+        } else {
+            schuelerWeiter.setVisible(true);
         }
-        
+
     }//GEN-LAST:event_schuelerTblMouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        PDF_Export.studentPDF(schuelerId,this);
+        PDF_Export.studentPDF(schuelerId, this);
         try {
             PDF_Export.openPDF();
         } catch (IOException ex) {
@@ -1153,72 +1140,72 @@ public class Oberflaeche extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void schuelerWeiterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schuelerWeiterActionPerformed
-        if(schuelerRow == 0){
+        if (schuelerRow == 0) {
             schuelerZurueck.setVisible(true);
         }
-        
-        schuelerRow = schuelerRow +1;
+
+        schuelerRow = schuelerRow + 1;
         ArrayList<String> data = Classes.classList(momentaneKlasse);
-        schuelerId = data.get(schuelerRow*4+3);
-        schuelerName.setText(Students.SingelStudent(schuelerId, 1) +" " +Students.SingelStudent(schuelerId, 2));
+        schuelerId = data.get(schuelerRow * 4 + 3);
+        schuelerName.setText(Students.SingelStudent(schuelerId, 1) + " " + Students.SingelStudent(schuelerId, 2));
         schuelerGeburt.setText(Students.SingelStudent(schuelerId, 3));
         schuelerZurueckAnzahl.setText(Students.CopiesToReturn(schuelerId));
         schuelerKlassenList.setListData(Students.SingelStudentClasses(schuelerId).toArray());
-        
+
         String col[] = {"Label", "Gekauft", "Ausgegeben", "Bezahlt"};
-        DefaultTableModel schuelerBuecherModel = new DefaultTableModel(col, 0){
+        DefaultTableModel schuelerBuecherModel = new DefaultTableModel(col, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
-            //all cells false
-            return false;
+                //all cells false
+                return false;
             }
         };
-        
+
         ArrayList<String> buecher = Students.BookList(schuelerId);
-        
-        for(int i=0; i<= buecher.size()-4; i=i+4) {
-            Object[] obj = {buecher.get(i),buecher.get(i+1),Date.ToNormal(buecher.get(i+2)),buecher.get(i+3)};
+
+        for (int i = 0; i <= buecher.size() - 4; i = i + 4) {
+            Object[] obj = {buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3)};
             schuelerBuecherModel.addRow(obj);
         }
-        schuelerBuecherTbl.setModel(schuelerBuecherModel);  
-       
-        if(schuelerRow == schuelerInKlasse -1){
-        schuelerWeiter.setVisible(false);
+        schuelerBuecherTbl.setModel(schuelerBuecherModel);
+
+        if (schuelerRow == schuelerInKlasse - 1) {
+            schuelerWeiter.setVisible(false);
         }
     }//GEN-LAST:event_schuelerWeiterActionPerformed
 
     private void schuelerZurueckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schuelerZurueckActionPerformed
-        if(schuelerRow == schuelerInKlasse -1){
+        if (schuelerRow == schuelerInKlasse - 1) {
             schuelerWeiter.setVisible(true);
         }
-        
-        schuelerRow = schuelerRow -1;
+
+        schuelerRow = schuelerRow - 1;
         ArrayList<String> data = Classes.classList(momentaneKlasse);
-        schuelerId = data.get(schuelerRow*4+3);
-        schuelerName.setText(Students.SingelStudent(schuelerId, 1) +" " +Students.SingelStudent(schuelerId, 2));
+        schuelerId = data.get(schuelerRow * 4 + 3);
+        schuelerName.setText(Students.SingelStudent(schuelerId, 1) + " " + Students.SingelStudent(schuelerId, 2));
         schuelerGeburt.setText(Students.SingelStudent(schuelerId, 3));
         schuelerZurueckAnzahl.setText(Students.CopiesToReturn(schuelerId));
         schuelerKlassenList.setListData(Students.SingelStudentClasses(schuelerId).toArray());
-        
+
         String col[] = {"Label", "Gekauft", "Ausgegeben", "Bezahlt"};
-        DefaultTableModel schuelerBuecherModel = new DefaultTableModel(col, 0){
+        DefaultTableModel schuelerBuecherModel = new DefaultTableModel(col, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
-            //all cells false
-            return false;
+                //all cells false
+                return false;
             }
         };
-        
+
         ArrayList<String> buecher = Students.BookList(schuelerId);
-        
-        for(int i=0; i<= buecher.size()-4; i=i+4) {
-            Object[] obj = {buecher.get(i),buecher.get(i+1),Date.ToNormal(buecher.get(i+2)),buecher.get(i+3)};
+
+        for (int i = 0; i <= buecher.size() - 4; i = i + 4) {
+            Object[] obj = {buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3)};
             schuelerBuecherModel.addRow(obj);
         }
-        schuelerBuecherTbl.setModel(schuelerBuecherModel);  
-        
-        if(schuelerRow == 0){
-        schuelerZurueck.setVisible(false);
+        schuelerBuecherTbl.setModel(schuelerBuecherModel);
+
+        if (schuelerRow == 0) {
+            schuelerZurueck.setVisible(false);
         }
     }//GEN-LAST:event_schuelerZurueckActionPerformed
 
@@ -1246,7 +1233,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         ArrayList<String> ids = new ArrayList();
         ids = Classes.getClassIDs();
         ArrayList<String> names = new ArrayList<>();
-        for(String s: ids) {
+        for (String s : ids) {
             names.add(Classes.getClassName(s));
         }
         buchKlassenList.setListData(names.toArray());
@@ -1261,15 +1248,15 @@ public class Oberflaeche extends javax.swing.JFrame {
         ArrayList<String> kopie = Copies.Singlecopy(momentaneKopie);
 
         kopieLabel.setText(kopie.get(0));
-            kopieFore.setText(kopie.get(7));
-            kopieSur.setText(kopie.get(8));
-            kopieDistributed.setText(Date.ToNormal(kopie.get(2)));
-            kopieBought.setText(kopie.get(4));
-            kopiePaid.setText(kopie.get(6));   
+        kopieFore.setText(kopie.get(7));
+        kopieSur.setText(kopie.get(8));
+        kopieDistributed.setText(Date.ToNormal(kopie.get(2)));
+        kopieBought.setText(kopie.get(4));
+        kopiePaid.setText(kopie.get(6));
     }//GEN-LAST:event_eineKopieSuchenActionPerformed
 
     private void kopieEinsammelnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kopieEinsammelnActionPerformed
-        
+
     }//GEN-LAST:event_kopieEinsammelnActionPerformed
 
     private void kopieEinsammelnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kopieEinsammelnMouseClicked
@@ -1279,59 +1266,61 @@ public class Oberflaeche extends javax.swing.JFrame {
 
     private void isbnSucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isbnSucheActionPerformed
         String buchISBN = isbnSuche.getText();
-        if(Books.singleBook(buchISBN,0).isEmpty() == true){
+        if (Books.singleBook(buchISBN, 0).isEmpty() == true) {
             einBuchLabelFeld.setText("Kein Buch mit dieser ISBN");
             einBuchISBNFeld.setText("");
             einBuchKaufFeld.setText("");
             einBuchPreisFeld.setText("");
-        }else{
-        einBuchLabelFeld.setText(Books.singleBook(buchISBN,0).get(0));
-        einBuchISBNFeld.setText(Books.singleBook(buchISBN,0).get(1));
-        einBuchKaufFeld.setText(Books.singleBook(buchISBN,0).get(3));
-        einBuchPreisFeld.setText(Books.singleBook(buchISBN,0).get(2));
+        } else {
+            einBuchLabelFeld.setText(Books.singleBook(buchISBN, 0).get(0));
+            einBuchISBNFeld.setText(Books.singleBook(buchISBN, 0).get(1));
+            einBuchKaufFeld.setText(Books.singleBook(buchISBN, 0).get(3));
+            einBuchPreisFeld.setText(Books.singleBook(buchISBN, 0).get(2));
         }
     }//GEN-LAST:event_isbnSucheActionPerformed
 
     private void buecherTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buecherTblMouseClicked
         int buecherRow = buecherTbl.getSelectedRow();
         ArrayList<String> data = Books.BookList();
-        String buchISBN = data.get(buecherRow *4+1);
-        einBuchLabelFeld.setText(Books.singleBook(buchISBN,0).get(0));
-        einBuchISBNFeld.setText(Books.singleBook(buchISBN,0).get(1));
-        einBuchKaufFeld.setText(Books.singleBook(buchISBN,0).get(3));
-        einBuchPreisFeld.setText(Books.singleBook(buchISBN,0).get(2));
-        
-        if(evt.getClickCount()==2) {
+        String buchISBN = data.get(buecherRow * 4 + 1);
+        einBuchLabelFeld.setText(Books.singleBook(buchISBN, 0).get(0));
+        einBuchISBNFeld.setText(Books.singleBook(buchISBN, 0).get(1));
+        einBuchKaufFeld.setText(Books.singleBook(buchISBN, 0).get(3));
+        einBuchPreisFeld.setText(Books.singleBook(buchISBN, 0).get(2));
+
+        if (evt.getClickCount() == 2) {
             basePanel.setSelectedIndex(4);
         }
     }//GEN-LAST:event_buecherTblMouseClicked
 
     private void labelSucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_labelSucheActionPerformed
         String buchLabel = isbnSuche.getText();
-        if(Books.singleBook(buchLabel,1).isEmpty() == true){
+        if (Books.singleBook(buchLabel, 1).isEmpty() == true) {
             einBuchLabelFeld.setText("Kein Buch mir diesem Label");
             einBuchISBNFeld.setText("");
             einBuchKaufFeld.setText("");
             einBuchPreisFeld.setText("");
-        }else{
-        einBuchLabelFeld.setText(Books.singleBook(buchLabel,1).get(0));
-        einBuchISBNFeld.setText(Books.singleBook(buchLabel,1).get(1));
-        einBuchKaufFeld.setText(Books.singleBook(buchLabel,1).get(3));
-        einBuchPreisFeld.setText(Books.singleBook(buchLabel,1).get(2));
+        } else {
+            einBuchLabelFeld.setText(Books.singleBook(buchLabel, 1).get(0));
+            einBuchISBNFeld.setText(Books.singleBook(buchLabel, 1).get(1));
+            einBuchKaufFeld.setText(Books.singleBook(buchLabel, 1).get(3));
+            einBuchPreisFeld.setText(Books.singleBook(buchLabel, 1).get(2));
         }
     }//GEN-LAST:event_labelSucheActionPerformed
 
     private void neuKopieBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_neuKopieBtnMouseClicked
         int anz = Integer.parseInt(neuKopieAnzahl.getText());
         int id = Copies.newID();
-        if(id == 0){
+        if (id == 0) {
             neuKopieBtn.setText("Error");
-        }else{
-            try{
+        } else {
+            try {
                 PDF_Export.barcodePDF(id, anz);
-            }catch(Exception e){System.out.println(e + "barcodePDF");} 
-            for(int i=0; i<anz; i++){
-                Copies.addCopy(Books.singleBook(einBuchISBNFeld.getText(), 0).get(4), id+i);
+            } catch (Exception e) {
+                System.out.println(e + "barcodePDF");
+            }
+            for (int i = 0; i < anz; i++) {
+                Copies.addCopy(Books.singleBook(einBuchISBNFeld.getText(), 0).get(4), id + i);
             }
         }
     }//GEN-LAST:event_neuKopieBtnMouseClicked
@@ -1349,7 +1338,7 @@ public class Oberflaeche extends javax.swing.JFrame {
     }//GEN-LAST:event_schuelerKlassenListNeuMouseClicked
 
     private void buchNeuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buchNeuActionPerformed
-        if(speichern == 0){
+        if (speichern == 0) {
             einBuchLabelFeld.setText("");
             einBuchISBNFeld.setText("");
             einBuchKaufFeld.setText("");
@@ -1358,7 +1347,7 @@ public class Oberflaeche extends javax.swing.JFrame {
             buchBearbeiten.setVisible(false);
             buchLöschen.setVisible(false);
             speichern = 1;
-        }else{
+        } else {
             Books.newBook(einBuchLabelFeld.getText(), einBuchISBNFeld.getText(), einBuchPreisFeld.getText(), einBuchKaufFeld.getText());
             buchNeu.setText("Neues Buch");
             buchBearbeiten.setVisible(true);
@@ -1368,18 +1357,18 @@ public class Oberflaeche extends javax.swing.JFrame {
     }//GEN-LAST:event_buchNeuActionPerformed
 
     private void buchLöschenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buchLöschenActionPerformed
-        
+
     }//GEN-LAST:event_buchLöschenActionPerformed
 
     private void buchBearbeitenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buchBearbeitenActionPerformed
-        if(speichern == 0){
+        if (speichern == 0) {
             buchBearbeiten.setText("Speichern");
             buchNeu.setVisible(false);
             buchLöschen.setVisible(false);
             speichern = 1;
-        }else{
-            
-            Books.editBook(Books.singleBook(einBuchISBNFeld.getText(),0).get(4),einBuchLabelFeld.getText(), einBuchISBNFeld.getText(), einBuchPreisFeld.getText(), einBuchKaufFeld.getText());
+        } else {
+
+            Books.editBook(Books.singleBook(einBuchISBNFeld.getText(), 0).get(4), einBuchLabelFeld.getText(), einBuchISBNFeld.getText(), einBuchPreisFeld.getText(), einBuchKaufFeld.getText());
             buchBearbeiten.setText("Buch bearbeiten");
             buchNeu.setVisible(true);
             buchLöschen.setVisible(true);
@@ -1388,11 +1377,11 @@ public class Oberflaeche extends javax.swing.JFrame {
     }//GEN-LAST:event_buchBearbeitenActionPerformed
 
     private void schuelerKlassenBearbeitenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schuelerKlassenBearbeitenActionPerformed
-        if(skBearbeiten == 0){
+        if (skBearbeiten == 0) {
             schuelerKlassenListNeu.setEnabled(true);
             schuelerKlassenBearbeiten.setText("Speichern");
             skBearbeiten = 1;
-        }else{
+        } else {
             schuelerKlassenListNeu.setEnabled(false);
             schuelerKlassenBearbeiten.setText("Bearbeiten");
             skBearbeiten = 0;
@@ -1432,21 +1421,21 @@ public class Oberflaeche extends javax.swing.JFrame {
     private void buecherSchuelerTblAktActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buecherSchuelerTblAktActionPerformed
         //Tabelle auf Oberfläche aktualisieren
         String col[] = {"Label", "Gekauft", "Ausgegeben", "Bezahlt"};
-        DefaultTableModel schuelerBuecherModel = new DefaultTableModel(col, 0){
+        DefaultTableModel schuelerBuecherModel = new DefaultTableModel(col, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
-            //all cells false
-            return false;
+                //all cells false
+                return false;
             }
         };
-        
+
         ArrayList<String> buecher = Students.BookList(schuelerId);
-        
-        for(int i=0; i<= buecher.size()-4; i=i+4) {
-            Object[] obj = {buecher.get(i),buecher.get(i+1),Date.ToNormal(buecher.get(i+2)),buecher.get(i+3)};
+
+        for (int i = 0; i <= buecher.size() - 4; i = i + 4) {
+            Object[] obj = {buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3)};
             schuelerBuecherModel.addRow(obj);
         }
-        schuelerBuecherTbl.setModel(schuelerBuecherModel); 
+        schuelerBuecherTbl.setModel(schuelerBuecherModel);
     }//GEN-LAST:event_buecherSchuelerTblAktActionPerformed
 
     private void buecherTblAktActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buecherTblAktActionPerformed
@@ -1456,15 +1445,13 @@ public class Oberflaeche extends javax.swing.JFrame {
 
     private void neuKlasseBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_neuKlasseBtnMouseClicked
         String klasse = neuKlasseFeld.getText();
-        if(klasse.isEmpty()){
-           
-        }else{
+        if (klasse.isEmpty()) {
+
+        } else {
             Classes.newClass(klasse);
         }
     }//GEN-LAST:event_neuKlasseBtnMouseClicked
 
-    
-    
     /**
      * @param args the command line arguments
      */
