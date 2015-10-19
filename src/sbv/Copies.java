@@ -69,7 +69,7 @@ public class Copies {
         try {
             ArrayList<String> bill = Query.anyQuery("SELECT sbm_books.label, sbm_copieshistory.dprice FROM sbm_copieshistory, sbm_books, sbm_copies WHERE sbm_copies.book_id LIKE sbm_books.ID AND sbm_copieshistory.copy_id LIKE sbm_copies.ID AND bought LIKE 1 AND paid LIKE 0 AND student_id LIKE '" + student_id + "'");
             bill.add("Gesammt");
-            bill.add(Query.getString("SELECT sum(dprice) FROM sbm_copieshistory WHERE bought LIKE 1 AND student_id LIKE '" + student_id + "'", "sum(dprice)"));
+            bill.add(Query.getString("SELECT sum(dprice) FROM sbm_copieshistory WHERE bought LIKE 1 AND paid LIKE 0 AND student_id LIKE '" + student_id + "'", "sum(dprice)"));
             Query.output(bill, Query.TableNames("SELECT sbm_books.label, sbm_copieshistory.dprice FROM"));
             return bill;
         } catch (Exception e) {
