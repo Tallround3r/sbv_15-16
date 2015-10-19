@@ -145,7 +145,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         schuelerBuecherTbl = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
         schuelerKlassenList = new javax.swing.JList();
-        jButton2 = new javax.swing.JButton();
+        schuelerExport = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         schuelerZurueckAnzahl = new javax.swing.JLabel();
         schuelerZurueck = new javax.swing.JButton();
@@ -157,7 +157,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         ausgeben = new javax.swing.JButton();
         ausgebenKaufenFeld = new javax.swing.JTextField();
         buecherSchuelerTblAkt = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        schuelerExportPreisliste = new javax.swing.JButton();
         buecherTab = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         buecherTbl = new javax.swing.JTable();
@@ -415,10 +415,10 @@ public class Oberflaeche extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(schuelerKlassenList);
 
-        jButton2.setText("Export als PDF");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        schuelerExport.setText("Export als PDF");
+        schuelerExport.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                schuelerExportMouseClicked(evt);
             }
         });
 
@@ -478,10 +478,10 @@ public class Oberflaeche extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Preislist Export als PDF");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        schuelerExportPreisliste.setText("Preislist Export als PDF");
+        schuelerExportPreisliste.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                schuelerExportPreislisteMouseClicked(evt);
             }
         });
 
@@ -533,9 +533,9 @@ public class Oberflaeche extends javax.swing.JFrame {
                         .addGap(344, 344, 344))))
             .addGroup(einSchuelerTabLayout.createSequentialGroup()
                 .addGap(500, 500, 500)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(schuelerExport, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(schuelerExportPreisliste, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ausgeben, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -573,10 +573,10 @@ public class Oberflaeche extends javax.swing.JFrame {
                 .addComponent(buecherSchuelerTblAkt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(schuelerExport)
                     .addComponent(ausgebenIDFeld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ausgeben)
-                    .addComponent(jButton1))
+                    .addComponent(schuelerExportPreisliste))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ausgebenKaufenFeld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
@@ -1154,14 +1154,14 @@ public class Oberflaeche extends javax.swing.JFrame {
 
     }//GEN-LAST:event_schuelerTblMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void schuelerExportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_schuelerExportMouseClicked
         PDF_Export.studentPDF(schuelerId, this);
         try {
             PDF_Export.openPDF();
         } catch (IOException ex) {
             Logger.getLogger(Oberflaeche.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_schuelerExportMouseClicked
 
     private void schuelerWeiterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schuelerWeiterActionPerformed
         if (schuelerRow == 0) {
@@ -1476,14 +1476,14 @@ public class Oberflaeche extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_neuKlasseBtnMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void schuelerExportPreislisteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_schuelerExportPreislisteMouseClicked
         PDF_Export.studentBill(schuelerId, this);
         try {
             PDF_Export.openPDF();
         } catch (IOException ex) {
             Logger.getLogger(Oberflaeche.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_schuelerExportPreislisteMouseClicked
 
     private void klasseExportPreislistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_klasseExportPreislistActionPerformed
         PDF_Export.classBill(momentaneKlasse, this);
@@ -1554,8 +1554,6 @@ public class Oberflaeche extends javax.swing.JFrame {
     private javax.swing.JLabel freieBuecher;
     private javax.swing.JPanel homeTab;
     private javax.swing.JTextField isbnSuche;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1605,6 +1603,8 @@ public class Oberflaeche extends javax.swing.JFrame {
     private javax.swing.JButton neuKopieBtn;
     private javax.swing.JTable schuelerBuecherTbl;
     private javax.swing.JLabel schuelerCount;
+    private javax.swing.JButton schuelerExport;
+    private javax.swing.JButton schuelerExportPreisliste;
     private javax.swing.JLabel schuelerGeburt;
     private javax.swing.JButton schuelerKlassenBearbeiten;
     private javax.swing.JList schuelerKlassenList;
