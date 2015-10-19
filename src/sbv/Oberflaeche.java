@@ -135,6 +135,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         klasseExportBtn = new javax.swing.JButton();
         neuKlasseFeld = new javax.swing.JTextField();
         neuKlasseBtn = new javax.swing.JButton();
+        klasseExportPreislist = new javax.swing.JButton();
         einSchuelerTab = new javax.swing.JPanel();
         schuelerName = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -156,6 +157,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         ausgeben = new javax.swing.JButton();
         ausgebenKaufenFeld = new javax.swing.JTextField();
         buecherSchuelerTblAkt = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         buecherTab = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         buecherTbl = new javax.swing.JTable();
@@ -331,6 +333,13 @@ public class Oberflaeche extends javax.swing.JFrame {
             }
         });
 
+        klasseExportPreislist.setText("Preisliste Klasse Exportieren");
+        klasseExportPreislist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                klasseExportPreislistActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout schuelerTabLayout = new javax.swing.GroupLayout(schuelerTab);
         schuelerTab.setLayout(schuelerTabLayout);
         schuelerTabLayout.setHorizontalGroup(
@@ -342,11 +351,13 @@ public class Oberflaeche extends javax.swing.JFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(schuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(schuelerTblPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(schuelerTabLayout.createSequentialGroup()
                         .addComponent(neuKlasseBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(klasseExportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(schuelerTblPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(klasseExportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(klasseExportPreislist, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         schuelerTabLayout.setVerticalGroup(
@@ -358,11 +369,14 @@ public class Oberflaeche extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane3)))
                 .addGap(18, 18, 18)
-                .addGroup(schuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(klasseExportBtn)
-                    .addComponent(neuKlasseFeld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(neuKlasseBtn))
-                .addContainerGap())
+                .addGroup(schuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(schuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(neuKlasseFeld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(neuKlasseBtn))
+                    .addGroup(schuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(klasseExportPreislist)
+                        .addComponent(klasseExportBtn)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         basePanel.addTab("Schüler", schuelerTab);
@@ -464,6 +478,13 @@ public class Oberflaeche extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Preislist Export als PDF");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout einSchuelerTabLayout = new javax.swing.GroupLayout(einSchuelerTab);
         einSchuelerTab.setLayout(einSchuelerTabLayout);
         einSchuelerTabLayout.setHorizontalGroup(
@@ -501,14 +522,6 @@ public class Oberflaeche extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(einSchuelerTabLayout.createSequentialGroup()
-                .addGap(500, 500, 500)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ausgeben, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ausgebenIDFeld, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, einSchuelerTabLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -518,6 +531,16 @@ public class Oberflaeche extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, einSchuelerTabLayout.createSequentialGroup()
                         .addComponent(buecherSchuelerTblAkt)
                         .addGap(344, 344, 344))))
+            .addGroup(einSchuelerTabLayout.createSequentialGroup()
+                .addGap(500, 500, 500)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ausgeben, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ausgebenIDFeld, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         einSchuelerTabLayout.setVerticalGroup(
             einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -552,7 +575,8 @@ public class Oberflaeche extends javax.swing.JFrame {
                 .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(ausgebenIDFeld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ausgeben))
+                    .addComponent(ausgeben)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ausgebenKaufenFeld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
@@ -1452,6 +1476,19 @@ public class Oberflaeche extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_neuKlasseBtnMouseClicked
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        PDF_Export.studentBill(schuelerId, this);
+        try {
+            PDF_Export.openPDF();
+        } catch (IOException ex) {
+            Logger.getLogger(Oberflaeche.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void klasseExportPreislistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_klasseExportPreislistActionPerformed
+        PDF_Export.classBill(momentaneKlasse, this);
+    }//GEN-LAST:event_klasseExportPreislistActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1517,6 +1554,7 @@ public class Oberflaeche extends javax.swing.JFrame {
     private javax.swing.JLabel freieBuecher;
     private javax.swing.JPanel homeTab;
     private javax.swing.JTextField isbnSuche;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1549,6 +1587,7 @@ public class Oberflaeche extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JButton klasseExportBtn;
+    private javax.swing.JButton klasseExportPreislist;
     public static javax.swing.JList klassenList;
     private javax.swing.JPanel klassenTab;
     private javax.swing.JLabel kopieBought;
