@@ -593,5 +593,95 @@ public class PDF_Export {
         } catch (FileNotFoundException | DocumentException e) {
         }
     }
+    
+    public static void classBillFake(String class_ID, Oberflaeche ob) {
+        String pathName2;
+        JFileChooser chooser = new JFileChooser();
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int returnVal = chooser.showOpenDialog(ob);
+
+        File savefile = chooser.getSelectedFile();
+        pathName2 = savefile.getPath();
+        try {
+            Document document = new Document(PageSize.A4);
+
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(pathName2 + "\\" + class_ID + "-Rechnung.pdf"));
+
+            ArrayList<String> studentArray = new ArrayList();
+            studentArray = Classes.studentIDList(class_ID);
+            document.addAuthor(System.getProperty("user.name"));
+            document.addCreationDate();
+            document.addCreator("Seminarkurs Programm Schulbuchverwaltung");
+            document.addTitle("PDF-Export von Klasse " + class_ID);
+            document.addSubject("PDF-Export des Schülers " + class_ID);
+
+            document.open();
+
+            for (int i = 0; i < (studentArray.size()); i++) {
+                PdfPTable table = billTableFake(studentArray.get(i));
+                Chapter chapter = PdfChapter(studentArray.get(i));
+                document.add(chapter);
+                document.add(table);
+
+            }
+            document.close();
+            writer.close();
+
+        } catch (FileNotFoundException | DocumentException e) {
+        }
+    }
+    
+    public static PdfPTable billTableFake(String studentID) {
+        ArrayList<String> bookArray = new ArrayList();
+        bookArray.add("Crossover 2 Workbook");
+        bookArray.add("6.65");
+        bookArray.add("Max Frisch - Homo faber");
+        bookArray.add("5.60");
+        bookArray.add("Peter Stamm - AGNES");
+        bookArray.add("6.30");
+        bookArray.add("Georg Büchner Danton&#039;s Tod");
+        bookArray.add("3.50");
+        bookArray.add("Mathematik J1+2 Analysis und Stochastik");
+        bookArray.add("9.30");
+//        bookArray.add("Kosten- und Leistungsrechnung");
+//        bookArray.add("10.50");
+//        bookArray.add("Investition und Finanzierung");
+//        bookArray.add("10.50");
+        bookArray.add("Gesammt");
+        bookArray.add("52.35");
+        
+                
+        PdfPTable table = new PdfPTable(2);
+
+        table.setSpacingBefore(25);
+
+        table.setSpacingAfter(25);
+
+        PdfPCell name = new PdfPCell(new Phrase("Buch Name", FontFactory.getFont(FontFactory.HELVETICA, 16, Font.BOLD)));
+
+        table.addCell(name);
+
+        PdfPCell price = new PdfPCell(new Phrase("Preis", FontFactory.getFont(FontFactory.HELVETICA, 15, Font.BOLD)));
+
+        table.addCell(price);
+
+        for (int i = 0; i < (bookArray.size()); i++) {
+
+            if (i == bookArray.size() - 2) {
+                Paragraph ges = new Paragraph(bookArray.get(i), FontFactory.getFont(FontFactory.HELVETICA, 15, Font.BOLD));
+                table.addCell(ges);
+                i++;
+                table.addCell(bookArray.get(i));
+            } else {
+                //Paragraph titel = new Paragraph(bookArray.get(i),FontFactory.getFont(FontFactory.HELVETICA,8, Font.BOLD));    
+                table.addCell(bookArray.get(i));
+                i++;
+                table.addCell(bookArray.get(i));
+
+            }
+
+        }
+        return table;
+    }
 
 }
