@@ -643,10 +643,10 @@ public class PDF_Export {
         bookArray.add("3.50");
         bookArray.add("Mathematik J1+2 Analysis und Stochastik");
         bookArray.add("9.30");
-//        bookArray.add("Kosten- und Leistungsrechnung");
-//        bookArray.add("10.50");
-//        bookArray.add("Investition und Finanzierung");
-//        bookArray.add("10.50");
+        bookArray.add("Kosten- und Leistungsrechnung");
+        bookArray.add("10.50");
+        bookArray.add("Investition und Finanzierung");
+        bookArray.add("10.50");
         bookArray.add("Gesammt");
         bookArray.add("52.35");
         
