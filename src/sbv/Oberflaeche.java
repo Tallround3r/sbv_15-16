@@ -126,7 +126,6 @@ public class Oberflaeche extends javax.swing.JFrame {
         schuelerCount = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         freieBuecher = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         schuelerTab = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         klassenList = new javax.swing.JList();
@@ -236,13 +235,6 @@ public class Oberflaeche extends javax.swing.JFrame {
         freieBuecher.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         freieBuecher.setText("---");
 
-        jButton1.setText("set bought to 0");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout homeTabLayout = new javax.swing.GroupLayout(homeTab);
         homeTab.setLayout(homeTabLayout);
         homeTabLayout.setHorizontalGroup(
@@ -262,10 +254,6 @@ public class Oberflaeche extends javax.swing.JFrame {
                         .addGap(453, 453, 453)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(287, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeTabLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(213, 213, 213))
         );
         homeTabLayout.setVerticalGroup(
             homeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,9 +266,7 @@ public class Oberflaeche extends javax.swing.JFrame {
                     .addComponent(schuelerCount, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(freieBuecher, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 218, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(82, 82, 82))
+                .addContainerGap(323, Short.MAX_VALUE))
         );
 
         basePanel.addTab("Home", homeTab);
@@ -1516,10 +1502,6 @@ public class Oberflaeche extends javax.swing.JFrame {
         PDF_Export.classBill(momentaneKlasse, this);
     }//GEN-LAST:event_klasseExportPreislistActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        UpdateDb.updateBought();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         PDF_Export.classBillFake(momentaneKlasse, this);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -1589,7 +1571,6 @@ public class Oberflaeche extends javax.swing.JFrame {
     private javax.swing.JLabel freieBuecher;
     private javax.swing.JPanel homeTab;
     private javax.swing.JTextField isbnSuche;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
