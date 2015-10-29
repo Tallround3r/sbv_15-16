@@ -1,3 +1,5 @@
+/* //NOT NEEDED
+
 package sbv;
 
 import java.util.ArrayList;
@@ -115,27 +117,6 @@ public class UpdateDb {
             System.out.println(e + "updateDPrice");
         }
     }
-
-    public static void updateBought() {
-        try {
-
-            Query.anyUpdate("UPDATE sbm_copieshistory SET bought = 0");
-
-            ArrayList<String> allBooks = Query.anyQuery("SELECT ID FROM sbm_books");
-            ArrayList<String> booksToBought = new ArrayList();
-            for (int i = 0; i < allBooks.size(); i++) {
-
-                Query.anyUpdate("UPDATE sbm_copieshistory "
-                        + "SET bought = '" + Query.anyQuery("SELECT buy FROM sbm_books WHERE ID LIKE '" + i + "'") 
-                        + "' WHERE copy_id "
-                        + "LIKE '" + Query.anyQuery("SELECT ID FROM sbm_copies WHERE book_id LIKE '" + i + "'") 
-                        + "'");
-                
-
-            }
-
-        } catch (Exception e) {
-            System.out.println(e + "updateBought");
-        }
-    }
 }
+
+*/ //NOT NEEDED

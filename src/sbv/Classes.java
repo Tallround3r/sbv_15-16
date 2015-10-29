@@ -7,18 +7,25 @@ public class Classes {
     //arrayList of all classes with student count
     public static ArrayList<String> classesList() {
         try {
-            return Query.anyQuery("SELECT name, COUNT(student_ID) FROM `sbm_classes`, `sbm_students-classes` WHERE sbm_classes.ID lIKE class_ID GROUP BY class_ID");
+            return Query.anyQuery("SELECT name, COUNT(student_ID) "
+                    + "FROM `sbm_classes`, `sbm_students-classes` "
+                    + "WHERE sbm_classes.ID LIKE class_ID "
+                    + "GROUP BY class_ID");
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e + "classesList");
         }
         return null;
     }
 
     public static ArrayList<String> studentIDList(String ID) {
         try {
-            return Query.anyQuery("SELECT student_ID FROM  `sbm_students`, `sbm_students-classes`, `sbm_classes` WHERE sbm_classes.ID LIKE class_ID AND student_ID lIKE sbm_students.ID AND name lIKE '" + ID + "'");
+            return Query.anyQuery("SELECT student_ID "
+                    + "FROM  `sbm_students`, `sbm_students-classes`, `sbm_classes` "
+                    + "WHERE sbm_classes.ID LIKE class_ID "
+                    + "AND student_ID lIKE sbm_students.ID "
+                    + "AND name lIKE '" + ID + "'");
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e + "studentIDList");
         }
         return null;
     }
@@ -26,18 +33,22 @@ public class Classes {
     //gets Class name
     public static String getClassName(String ID) {
         try {
-            return Query.getString("SELECT name FROM sbm_classes WHERE ID LIKE " + ID, "name");
+            return Query.getString("SELECT name "
+                    + "FROM sbm_classes "
+                    + "WHERE ID LIKE " + ID, 
+                    "name");
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e + "getClassName");
         }
         return null;
     }
 
     public static ArrayList<String> getClassIDs() {
         try {
-            return Query.anyQuery("SELECT ID FROM sbm_classes");
+            return Query.anyQuery("SELECT ID "
+                    + "FROM sbm_classes");
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e + "getClassIDs");
         }
         return null;
 
@@ -46,9 +57,14 @@ public class Classes {
     //all students in a class
     public static ArrayList<String> classList(String name) {
         try {
-            return Query.anyQuery("SELECT forename, surname, birth, student_ID FROM  `sbm_students`, `sbm_students-classes`, `sbm_classes` WHERE sbm_classes.ID LIKE class_ID AND student_ID lIKE sbm_students.ID AND name LIKE '" + name + "' ORDER BY surname");
+            return Query.anyQuery("SELECT forename, surname, birth, student_ID "
+                    + "FROM  `sbm_students`, `sbm_students-classes`, `sbm_classes` "
+                    + "WHERE sbm_classes.ID LIKE class_ID "
+                    + "AND student_ID lIKE sbm_students.ID "
+                    + "AND name LIKE '" + name + "' "
+                    + "ORDER BY surname");
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e + "classList");
         }
         return null;
     }
@@ -56,18 +72,21 @@ public class Classes {
     //adds new class
     public static void newClass(String name) {
         try {
-            Query.anyUpdate("INSERT INTO `sbm_classes` SET name ='" + name + "'");
+            Query.anyUpdate("INSERT INTO `sbm_classes` "
+                    + "SET name ='" + name + "'");
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e + "newClass");
         }
     }
 
     //edits class
     public static void editClass(String ID, String name) {
         try {
-            Query.anyUpdate("UPDATE `sbm_classes` SET name = " + name + " WHERE ID LIKE " + ID);
+            Query.anyUpdate("UPDATE `sbm_classes` "
+                    + "SET name = " + name + " "
+                    + "WHERE ID LIKE " + ID);
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e + "editClass");
         }
     }
 }
