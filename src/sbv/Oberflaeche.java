@@ -407,13 +407,13 @@ public class Oberflaeche extends javax.swing.JFrame {
 
         schuelerBuecherTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "num", "Title 2", "Title 3", "Title 4", "Title 4", "Title 5"
             }
         ));
         jScrollPane4.setViewportView(schuelerBuecherTbl);
@@ -1126,13 +1126,13 @@ public class Oberflaeche extends javax.swing.JFrame {
     private void schuelerTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_schuelerTblMouseClicked
         schuelerRow = schuelerTbl.getSelectedRow();
         ArrayList<String> data = Classes.classList(momentaneKlasse);
-        schuelerId = data.get(schuelerRow * 4 + 3);
+        schuelerId = data.get(schuelerRow * 6 + 3);
         schuelerName.setText(Students.SingelStudent(schuelerId, 1) + " " + Students.SingelStudent(schuelerId, 2));
         schuelerGeburt.setText(Students.SingelStudent(schuelerId, 3));
         schuelerZurueckAnzahl.setText(Students.CopiesToReturn(schuelerId));
-        schuelerKlassenList.setListData(Students.SingelStudentClasses(schuelerId).toArray());
+        schuelerKlassenList.setListData(Students.SingelStudentClasses(schuelerId).toArray()); //ERROR
 
-        String col[] = {"Label", "Gekauft", "Ausgegeben", "Bezahlt"};
+        String col[] = {"N", "Label", "Gekauft", "Ausgegeben", "Bezahlt","Barcode"};
         DefaultTableModel schuelerBuecherModel = new DefaultTableModel(col, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -1143,8 +1143,8 @@ public class Oberflaeche extends javax.swing.JFrame {
 
         ArrayList<String> buecher = Students.BookList(schuelerId);
 
-        for (int i = 0; i <= buecher.size() - 4; i = i + 4) {
-            Object[] obj = {buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3)};
+        for (int i = 0; i <= buecher.size() - 6; i = i + 6) {
+            Object[] obj = {i/6, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 4)};
             schuelerBuecherModel.addRow(obj);
         }
         schuelerBuecherTbl.setModel(schuelerBuecherModel);
@@ -1183,13 +1183,13 @@ public class Oberflaeche extends javax.swing.JFrame {
 
         schuelerRow = schuelerRow + 1;
         ArrayList<String> data = Classes.classList(momentaneKlasse);
-        schuelerId = data.get(schuelerRow * 4 + 3);
+        schuelerId = data.get(schuelerRow * 6 + 3);
         schuelerName.setText(Students.SingelStudent(schuelerId, 1) + " " + Students.SingelStudent(schuelerId, 2));
         schuelerGeburt.setText(Students.SingelStudent(schuelerId, 3));
         schuelerZurueckAnzahl.setText(Students.CopiesToReturn(schuelerId));
         schuelerKlassenList.setListData(Students.SingelStudentClasses(schuelerId).toArray());
 
-        String col[] = {"Label", "Gekauft", "Ausgegeben", "Bezahlt"};
+        String col[] = {"N", "Label", "Gekauft", "Ausgegeben", "Bezahlt", "Barcode"};
         DefaultTableModel schuelerBuecherModel = new DefaultTableModel(col, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -1200,8 +1200,8 @@ public class Oberflaeche extends javax.swing.JFrame {
 
         ArrayList<String> buecher = Students.BookList(schuelerId);
 
-        for (int i = 0; i <= buecher.size() - 4; i = i + 4) {
-            Object[] obj = {buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3)};
+        for (int i = 0; i <= buecher.size() - 6; i = i + 6) {
+            Object[] obj = {i/6, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 3)};
             schuelerBuecherModel.addRow(obj);
         }
         schuelerBuecherTbl.setModel(schuelerBuecherModel);
@@ -1218,13 +1218,13 @@ public class Oberflaeche extends javax.swing.JFrame {
 
         schuelerRow = schuelerRow - 1;
         ArrayList<String> data = Classes.classList(momentaneKlasse);
-        schuelerId = data.get(schuelerRow * 4 + 3);
+        schuelerId = data.get(schuelerRow * 6 + 3);
         schuelerName.setText(Students.SingelStudent(schuelerId, 1) + " " + Students.SingelStudent(schuelerId, 2));
         schuelerGeburt.setText(Students.SingelStudent(schuelerId, 3));
         schuelerZurueckAnzahl.setText(Students.CopiesToReturn(schuelerId));
         schuelerKlassenList.setListData(Students.SingelStudentClasses(schuelerId).toArray());
 
-        String col[] = {"Label", "Gekauft", "Ausgegeben", "Bezahlt"};
+        String col[] = {"N", "Label", "Gekauft", "Ausgegeben", "Bezahlt", "Barcode"};
         DefaultTableModel schuelerBuecherModel = new DefaultTableModel(col, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -1235,8 +1235,8 @@ public class Oberflaeche extends javax.swing.JFrame {
 
         ArrayList<String> buecher = Students.BookList(schuelerId);
 
-        for (int i = 0; i <= buecher.size() - 4; i = i + 4) {
-            Object[] obj = {buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3)};
+        for (int i = 0; i <= buecher.size() - 6; i = i + 6) {
+            Object[] obj = {i/6, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 3)};
             schuelerBuecherModel.addRow(obj);
         }
         schuelerBuecherTbl.setModel(schuelerBuecherModel);
@@ -1457,7 +1457,7 @@ public class Oberflaeche extends javax.swing.JFrame {
 
     private void buecherSchuelerTblAktActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buecherSchuelerTblAktActionPerformed
         //Tabelle auf Oberfläche aktualisieren
-        String col[] = {"Label", "Gekauft", "Ausgegeben", "Bezahlt"};
+        String col[] = {"N", "Label", "Gekauft", "Ausgegeben", "Bezahlt", "Barcode"};
         DefaultTableModel schuelerBuecherModel = new DefaultTableModel(col, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -1468,8 +1468,8 @@ public class Oberflaeche extends javax.swing.JFrame {
 
         ArrayList<String> buecher = Students.BookList(schuelerId);
 
-        for (int i = 0; i <= buecher.size() - 4; i = i + 4) {
-            Object[] obj = {buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3)};
+        for (int i = 0; i <= buecher.size() - 6; i = i + 6) {
+            Object[] obj = {i/6, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 3)};
             schuelerBuecherModel.addRow(obj);
         }
         schuelerBuecherTbl.setModel(schuelerBuecherModel);
