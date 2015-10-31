@@ -253,7 +253,7 @@ public class Oberflaeche extends javax.swing.JFrame {
                     .addGroup(homeTabLayout.createSequentialGroup()
                         .addGap(453, 453, 453)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(287, Short.MAX_VALUE))
+                .addContainerGap(318, Short.MAX_VALUE))
         );
         homeTabLayout.setVerticalGroup(
             homeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -415,8 +415,20 @@ public class Oberflaeche extends javax.swing.JFrame {
             new String [] {
                 "num", "Title 2", "Title 3", "Title 4", "Title 4", "Title 5"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane4.setViewportView(schuelerBuecherTbl);
+        if (schuelerBuecherTbl.getColumnModel().getColumnCount() > 0) {
+            schuelerBuecherTbl.getColumnModel().getColumn(0).setResizable(false);
+            schuelerBuecherTbl.getColumnModel().getColumn(0).setPreferredWidth(30);
+        }
 
         schuelerKlassenList.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         schuelerKlassenList.setModel(new javax.swing.AbstractListModel() {
@@ -516,16 +528,17 @@ public class Oberflaeche extends javax.swing.JFrame {
                                 .addComponent(schuelerGeburt, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(einSchuelerTabLayout.createSequentialGroup()
                                 .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(schuelerZurueck, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(schuelerZurueck, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(einSchuelerTabLayout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(81, 81, 81)
+                                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(einSchuelerTabLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(schuelerWeiter, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(einSchuelerTabLayout.createSequentialGroup()
-                                        .addGap(8, 8, 8)
-                                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(42, 42, 42)
+                                        .addGap(36, 36, 36)
                                         .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(schuelerKlassenBearbeiten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jScrollPane5))))))
@@ -632,7 +645,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         buecherTab.setLayout(buecherTabLayout);
         buecherTabLayout.setHorizontalGroup(
             buecherTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1299, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1330, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buecherTabLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(buecherTblAkt)
@@ -739,7 +752,7 @@ public class Oberflaeche extends javax.swing.JFrame {
                             .addComponent(jLabel16)
                             .addComponent(isbnSuche, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17))
-                        .addGap(429, 1089, Short.MAX_VALUE))
+                        .addGap(429, 1120, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, einBuchTabLayout.createSequentialGroup()
                         .addGroup(einBuchTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, einBuchTabLayout.createSequentialGroup()
@@ -995,7 +1008,7 @@ public class Oberflaeche extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1083, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1114, Short.MAX_VALUE)
                 .addContainerGap())
         );
         klassenTabLayout.setVerticalGroup(
@@ -1061,7 +1074,7 @@ public class Oberflaeche extends javax.swing.JFrame {
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 1083, Short.MAX_VALUE)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 1114, Short.MAX_VALUE)
                     .addComponent(jScrollPane11))
                 .addContainerGap())
         );
@@ -1126,11 +1139,11 @@ public class Oberflaeche extends javax.swing.JFrame {
     private void schuelerTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_schuelerTblMouseClicked
         schuelerRow = schuelerTbl.getSelectedRow();
         ArrayList<String> data = Classes.classList(momentaneKlasse);
-        schuelerId = data.get(schuelerRow * 6 + 3);
+        schuelerId = data.get(schuelerRow * 4 + 3);
         schuelerName.setText(Students.SingelStudent(schuelerId, 1) + " " + Students.SingelStudent(schuelerId, 2));
         schuelerGeburt.setText(Students.SingelStudent(schuelerId, 3));
         schuelerZurueckAnzahl.setText(Students.CopiesToReturn(schuelerId));
-        schuelerKlassenList.setListData(Students.SingelStudentClasses(schuelerId).toArray()); //ERROR
+        schuelerKlassenList.setListData(Students.SingelStudentClasses(schuelerId).toArray());
 
         String col[] = {"N", "Label", "Gekauft", "Ausgegeben", "Bezahlt","Barcode"};
         DefaultTableModel schuelerBuecherModel = new DefaultTableModel(col, 0) {
@@ -1143,8 +1156,8 @@ public class Oberflaeche extends javax.swing.JFrame {
 
         ArrayList<String> buecher = Students.BookList(schuelerId);
 
-        for (int i = 0; i <= buecher.size() - 6; i = i + 6) {
-            Object[] obj = {i/6, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 4)};
+        for (int i = 0; i <= buecher.size() - 5; i = i + 5) {
+            Object[] obj = {i/5+1, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 4)};
             schuelerBuecherModel.addRow(obj);
         }
         schuelerBuecherTbl.setModel(schuelerBuecherModel);
@@ -1183,11 +1196,11 @@ public class Oberflaeche extends javax.swing.JFrame {
 
         schuelerRow = schuelerRow + 1;
         ArrayList<String> data = Classes.classList(momentaneKlasse);
-        schuelerId = data.get(schuelerRow * 6 + 3);
+        schuelerId = data.get(schuelerRow * 4 + 3);
         schuelerName.setText(Students.SingelStudent(schuelerId, 1) + " " + Students.SingelStudent(schuelerId, 2));
         schuelerGeburt.setText(Students.SingelStudent(schuelerId, 3));
         schuelerZurueckAnzahl.setText(Students.CopiesToReturn(schuelerId));
-        schuelerKlassenList.setListData(Students.SingelStudentClasses(schuelerId).toArray());
+        schuelerKlassenList.setListData(Students.SingelStudentClasses(schuelerId).toArray());//ERROR
 
         String col[] = {"N", "Label", "Gekauft", "Ausgegeben", "Bezahlt", "Barcode"};
         DefaultTableModel schuelerBuecherModel = new DefaultTableModel(col, 0) {
@@ -1200,8 +1213,8 @@ public class Oberflaeche extends javax.swing.JFrame {
 
         ArrayList<String> buecher = Students.BookList(schuelerId);
 
-        for (int i = 0; i <= buecher.size() - 6; i = i + 6) {
-            Object[] obj = {i/6, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 3)};
+        for (int i = 0; i <= buecher.size() - 5; i = i + 5) {
+            Object[] obj = {i/5+1, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 4)};
             schuelerBuecherModel.addRow(obj);
         }
         schuelerBuecherTbl.setModel(schuelerBuecherModel);
@@ -1218,7 +1231,7 @@ public class Oberflaeche extends javax.swing.JFrame {
 
         schuelerRow = schuelerRow - 1;
         ArrayList<String> data = Classes.classList(momentaneKlasse);
-        schuelerId = data.get(schuelerRow * 6 + 3);
+        schuelerId = data.get(schuelerRow * 4 + 3);
         schuelerName.setText(Students.SingelStudent(schuelerId, 1) + " " + Students.SingelStudent(schuelerId, 2));
         schuelerGeburt.setText(Students.SingelStudent(schuelerId, 3));
         schuelerZurueckAnzahl.setText(Students.CopiesToReturn(schuelerId));
@@ -1235,8 +1248,8 @@ public class Oberflaeche extends javax.swing.JFrame {
 
         ArrayList<String> buecher = Students.BookList(schuelerId);
 
-        for (int i = 0; i <= buecher.size() - 6; i = i + 6) {
-            Object[] obj = {i/6, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 3)};
+        for (int i = 0; i <= buecher.size() - 5; i = i + 5) {
+            Object[] obj = {i/5+1, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 4)};
             schuelerBuecherModel.addRow(obj);
         }
         schuelerBuecherTbl.setModel(schuelerBuecherModel);
@@ -1354,7 +1367,7 @@ public class Oberflaeche extends javax.swing.JFrame {
             try {
                 PDF_Export.barcodePDF(id, anz);
             } catch (Exception e) {
-                System.out.println(e + "barcodePDF");
+                System.out.println(e + " => barcodePDF");
             }
             for (int i = 0; i < anz; i++) {
                 Copies.addCopy(Books.singleBook(einBuchISBNFeld.getText(), 0).get(4), id + i);
@@ -1468,8 +1481,8 @@ public class Oberflaeche extends javax.swing.JFrame {
 
         ArrayList<String> buecher = Students.BookList(schuelerId);
 
-        for (int i = 0; i <= buecher.size() - 6; i = i + 6) {
-            Object[] obj = {i/6, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 3)};
+        for (int i = 0; i <= buecher.size() - 5; i = i + 5) {
+            Object[] obj = {i/5+1, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 4)};
             schuelerBuecherModel.addRow(obj);
         }
         schuelerBuecherTbl.setModel(schuelerBuecherModel);
