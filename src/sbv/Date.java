@@ -12,7 +12,7 @@ public class Date {
             s = new SimpleDateFormat("MM/dd/yyyy").format(time);
             return s;
         } catch (Exception e) {
-            System.out.println(e + "date");
+            System.out.println(e + " => date");
         }
         return timestamp;
     }

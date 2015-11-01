@@ -11,7 +11,7 @@ public class BookGroups {
                     + "SET book_id= " + book_id + " , "
                     + "class_id = " + class_id);
         } catch (Exception e) {
-            System.out.println(e + "AddRecord");
+            System.out.println(e + " => AddRecord");
         }
     }
 
@@ -21,7 +21,7 @@ public class BookGroups {
             Query.anyUpdate("DELETE FROM `sbm_classes-books` "
                     + "WHERE ID LIKE " + ID);
         } catch (Exception e) {
-            System.out.println(e + "AddRecord");
+            System.out.println(e + " => AddRecord");
         }
     }
 
@@ -33,7 +33,7 @@ public class BookGroups {
                     + "WHERE sbm_books.ID LIKE book_id "
                     + "AND class_id LIKE '" + class_id + "'");
         } catch (Exception e) {
-            System.out.println(e + "AddRecord");
+            System.out.println(e + " => AddRecord");
         }
         return null;
     }
@@ -45,7 +45,7 @@ public class BookGroups {
                     + "WHERE sbm_books.ID LIKE book_id "
                     + "AND class_id LIKE " + class_id);
         } catch (Exception e) {
-            System.out.println(e + "BooksList");
+            System.out.println(e + " => BooksList");
         }
         return null;
     }
@@ -57,7 +57,7 @@ public class BookGroups {
                     + "WHERE sbm_classes.class_id LIKE '" + class_id + "' "
                     + "AND student_ID lIKE sbm_students.ID");
         } catch (Exception e) {
-            System.out.println(e + "getStudentIds");
+            System.out.println(e + " => getStudentIds");
         }
         return null;
     }

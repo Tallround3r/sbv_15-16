@@ -12,7 +12,7 @@ public class Classes {
                     + "WHERE sbm_classes.ID LIKE class_ID "
                     + "GROUP BY class_ID");
         } catch (Exception e) {
-            System.out.println(e + "classesList");
+            System.out.println(e + " => classesList");
         }
         return null;
     }
@@ -25,7 +25,7 @@ public class Classes {
                     + "AND student_ID lIKE sbm_students.ID "
                     + "AND name lIKE '" + ID + "'");
         } catch (Exception e) {
-            System.out.println(e + "studentIDList");
+            System.out.println(e + " => studentIDList");
         }
         return null;
     }
@@ -38,7 +38,7 @@ public class Classes {
                     + "WHERE ID LIKE " + ID, 
                     "name");
         } catch (Exception e) {
-            System.out.println(e + "getClassName");
+            System.out.println(e + " => getClassName");
         }
         return null;
     }
@@ -48,7 +48,7 @@ public class Classes {
             return Query.anyQuery("SELECT ID "
                     + "FROM sbm_classes");
         } catch (Exception e) {
-            System.out.println(e + "getClassIDs");
+            System.out.println(e + " => getClassIDs");
         }
         return null;
 
@@ -64,7 +64,7 @@ public class Classes {
                     + "AND name LIKE '" + name + "' "
                     + "ORDER BY surname");
         } catch (Exception e) {
-            System.out.println(e + "classList");
+            System.out.println(e + " => classList");
         }
         return null;
     }
@@ -75,7 +75,7 @@ public class Classes {
             Query.anyUpdate("INSERT INTO `sbm_classes` "
                     + "SET name ='" + name + "'");
         } catch (Exception e) {
-            System.out.println(e + "newClass");
+            System.out.println(e + " => newClass");
         }
     }
 
@@ -86,7 +86,7 @@ public class Classes {
                     + "SET name = " + name + " "
                     + "WHERE ID LIKE " + ID);
         } catch (Exception e) {
-            System.out.println(e + "editClass");
+            System.out.println(e + " => editClass");
         }
     }
 }

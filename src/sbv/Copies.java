@@ -19,7 +19,7 @@ public class Copies {
                     + "WHERE book_id LIKE " + BookID, 
                     "COUNT(ID)");
         } catch (Exception e) {
-            System.out.println(e + "CopyCount");
+            System.out.println(e + " => CopyCount");
         }
         return null;
     }
@@ -34,7 +34,7 @@ public class Copies {
                     + "AND book_id LIKE " + book_id, 
                     "COUNT(sbm_copies.ID)");
         } catch (Exception e) {
-            System.out.println(e + "CauchtCopyCount");
+            System.out.println(e + " => CauchtCopyCount");
         }
         return null;
     }
@@ -56,7 +56,7 @@ public class Copies {
             int result = caughthistory + (all - history);
             return Integer.toString(result);
         } catch (Exception e) {
-            System.out.println(e + "CauchtCopyCount");
+            System.out.println(e + " => CauchtCopyCount");
         }
         return null;
     }
@@ -80,7 +80,7 @@ public class Copies {
             int result = catchedhistory + (all - history);
             return Integer.toString(result);
         } catch (Exception e) {
-            System.out.println(e + "CauchtCopyCount");
+            System.out.println(e + " => CauchtCopyCount");
         }
         return null;
     }
@@ -96,7 +96,7 @@ public class Copies {
                     + "AND book_id LIKE " + book_id, 
                     "COUNT(sbm_copies.ID)");
         } catch (Exception e) {
-            System.out.println(e + "CauchtCopyCount");
+            System.out.println(e + " => CauchtCopyCount");
         }
         return null;
     }
@@ -123,7 +123,7 @@ public class Copies {
                     + "FROM"));//todo read
             return bill;
         } catch (Exception e) {
-            System.out.println(e + "CopyCount");
+            System.out.println(e + " => CopyCount");
         }
         return null;
     }
@@ -139,7 +139,7 @@ public class Copies {
                     + "AND sbm_copieshistory.copy_id LIKE " + copyId);
             return result.get(index);
         } catch (Exception e) {
-            System.out.println(e + "Singlecopy");
+            System.out.println(e + " => Singlecopy");
         }
         return null;
     }
@@ -176,7 +176,7 @@ public class Copies {
                 return result;
             }
         } catch (Exception e) {
-            System.out.println(e + "Singlecopy");
+            System.out.println(e + " => Singlecopy");
         }
         return null;
     }
@@ -205,7 +205,7 @@ public class Copies {
                         + "WHERE copy_id LIKE " + copy_id);
             }
         } catch (Exception e) {
-            System.out.println(e + "distributeCopy");
+            System.out.println(e + " => distributeCopy");
         }
     }
 
@@ -219,7 +219,7 @@ public class Copies {
                     + "WHERE copy_id "
                     + "LIKE " + copy_id);
         } catch (Exception e) {
-            System.out.println(e + "collectCopy");
+            System.out.println(e + " => collectCopy");
         }
     }
 
@@ -233,7 +233,7 @@ public class Copies {
                     + "AND sbm_copieshistory.copy_id LIKE sbm_copies.ID "
                     + copy_id);
         } catch (Exception e) {
-            System.out.println(e + "copyBought");
+            System.out.println(e + " => copyBought");
         }
     }
 
@@ -244,7 +244,7 @@ public class Copies {
                     + "SET book_id = " + book_id + ", "
                     + "ID = " + ID);
         } catch (Exception e) {
-            System.out.println(e + "addCopy");
+            System.out.println(e + " => addCopy");
         }
     }
 
@@ -254,7 +254,7 @@ public class Copies {
             Query.anyUpdate("DELETE FROM sbm_copies "
                     + "WHERE ID = " + ID);
         } catch (Exception e) {
-            System.out.println(e + "addCopy");
+            System.out.println(e + " => addCopy");
         }
     }
 
@@ -265,7 +265,7 @@ public class Copies {
                     + "FROM sbm_copies "
                     + "Order BY ID DESC").get(0)) + 1;
         } catch (Exception e) {
-            System.out.println(e + "newID");
+            System.out.println(e + " => newID");
         }
         return 0;
     }

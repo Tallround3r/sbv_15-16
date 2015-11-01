@@ -11,7 +11,7 @@ public class Books {
                     + "FROM sbm_books "
                     + "ORDER BY label");
         } catch (Exception e) {
-            System.out.println(e + "BookList");
+            System.out.println(e + " => BookList");
         }
         return null;
     }
@@ -22,7 +22,7 @@ public class Books {
                     + "FROM sbm_books "
                     + "ORDER BY ID");
         } catch (Exception e) {
-            System.out.println(e + "BookIDList");
+            System.out.println(e + " => BookIDList");
         }
         return null;
     }
@@ -35,7 +35,7 @@ public class Books {
                         + "FROM sbm_books "
                         + "WHERE isbn Like '" + sterm + "'");
             } catch (Exception e) {
-                System.out.println(e + "singleBook");
+                System.out.println(e + " => singleBook");
             }
         } else {
             try {
@@ -43,7 +43,7 @@ public class Books {
                         + "FROM sbm_books "
                         + "WHERE label Like '" + sterm + "'");
             } catch (Exception e) {
-                System.out.println(e + "singleBook");
+                System.out.println(e + " => singleBook");
             }
         }
         return null;
@@ -57,7 +57,7 @@ public class Books {
                     + "WHERE ID Like '" + bookID + "'", 
                     "label");
         } catch (Exception e) {
-            System.out.println(e + "singleBook");
+            System.out.println(e + " => singleBook");
         }
         return null;
 
@@ -73,7 +73,7 @@ public class Books {
                     + "buy = " + buy + " "
                     + "WHERE ID LIKE " + ID);
         } catch (Exception e) {
-            System.out.println(e + "editBook");
+            System.out.println(e + " => editBook");
         }
     }
 
@@ -86,7 +86,7 @@ public class Books {
                     + "price = " + price + ", "
                     + "buy = " + buy);
         } catch (Exception e) {
-            System.out.println(e + "newBook");
+            System.out.println(e + " => newBook");
         }
     }
 }

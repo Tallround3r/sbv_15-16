@@ -11,7 +11,7 @@ public class Home {
                     + "FROM sbm_students", 
                     "COUNT(ID)");
         } catch (Exception e) {
-            System.out.println(e + "StudentsCount");
+            System.out.println(e + " => StudentsCount");
         }
         return null;
     }
@@ -27,7 +27,7 @@ public class Home {
                     + "AND buy = 0", 
                     "COUNT(sbm_copieshistory.ID)");
         } catch (Exception e) {
-            System.out.println(e + "WildCopyCount");
+            System.out.println(e + " => WildCopyCount");
         }
         return null;
     }
@@ -49,7 +49,7 @@ public class Home {
             int result = catchedhistory + (all - history);
             return Integer.toString(result);
         } catch (Exception e) {
-            System.out.println(e + "CauchtCopyCount");
+            System.out.println(e + " => CauchtCopyCount");
         }
         return null;
     }
@@ -64,7 +64,7 @@ public class Home {
                     + "AND collected LIKE ''", 
                     "COUNT(ID)");
         } catch (Exception e) {
-            System.out.println(e + "CauchtCopyCount");
+            System.out.println(e + " => CauchtCopyCount");
         }
         return null;
     }
@@ -75,7 +75,7 @@ public class Home {
                     + "FROM sbm_copies", 
                     "COUNT(ID)");
         } catch (Exception e) {
-            System.out.println(e + "WildCopyCount");
+            System.out.println(e + " => WildCopyCount");
         }
         return null;
     }

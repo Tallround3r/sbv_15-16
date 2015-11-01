@@ -23,7 +23,7 @@ public class Query {
 
             return returnString;
         } catch (Exception e) {
-            System.out.println(e + "getString");
+            System.out.println(e + " => getString");
         }
         return null;
     }
@@ -45,7 +45,7 @@ public class Query {
             //con.close();
             return array;
         } catch (Exception e) {
-            System.out.println(e + "anyQuery");
+            System.out.println(e + " => anyQuery");
         }
         return null;
     }
@@ -58,7 +58,7 @@ public class Query {
             statement.executeUpdate(input);                         //updates DB gets results 
             //con.close();
         } catch (Exception e) {
-            System.out.println(e + "anyUpdate");
+            System.out.println(e + " => anyUpdate");
         }
     }
 

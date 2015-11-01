@@ -11,7 +11,7 @@ public class Students {
             return Query.anyQuery("SELECT forename, surname, birth "
                     + "FROM sbm_students");
         } catch (Exception e) {
-            System.out.println(e + "StudentsList");
+            System.out.println(e + " => StudentsList");
         }
         return null;
     }
@@ -21,10 +21,10 @@ public class Students {
         try {
             ArrayList<String> result = Query.anyQuery("SELECT ID, forename, surname, birth "
                     + "FROM `sbm_students` "
-                    + "WHERE ID LIKE '" + StudentId + "'");
+                    + "WHERE ID = '" + StudentId + "'");
             return result.get(index);
         } catch (Exception e) {
-            System.out.println(e + "SingelStudent");
+            System.out.println(e + " => SingelStudent");
         }
         return null;
     }
@@ -32,13 +32,13 @@ public class Students {
     //booklist of a student
     public static ArrayList<String> BookList(String student_id) {
         try {
-            return Query.anyQuery("SELECT label, buy, distributed, paid "
+            return Query.anyQuery("SELECT label, buy, distributed, paid, sbm_copies.ID "
                     + "FROM sbm_copieshistory , sbm_books, sbm_copies "
                     + "WHERE sbm_books.ID LIKE book_id "
                     + "AND sbm_copies.ID LIKE copy_ID "
                     + "AND student_ID LIKE " + student_id);
         } catch (Exception e) {
-            System.out.println(e + "BookList");
+            System.out.println(e + " => BookList");
         }
         return null;
     }
@@ -65,20 +65,20 @@ public class Students {
                     "COUNT(sbm_copieshistory.ID)");*/
             //
         } catch (Exception e) {
-            System.out.println(e + "CopiesToReturn");
+            System.out.println(e + " => CopiesToReturn");
         }
         return null;
     }
 
     public static ArrayList<String> SingelStudentClasses(String StudentId) {
         try {
-            ArrayList<String> result = Query.anyQuery("SELECT name "
+            ArrayList<String> result = Query.anyQuery("SELECT sbm_classes.name "
                     + "FROM sbm_classes, `sbm_students-classes` "
-                    + "WHERE student_ID LIKE " + StudentId + " "
+                    + "WHERE `sbm_students-classes`.student_ID = " + StudentId + " "
                     + "AND class_ID LIKE sbm_classes.ID");
             return result;
         } catch (Exception e) {
-            System.out.println(e + "SingelStudentClasses");
+            System.out.println(e + " => SingelStudentClasses");
         }
         return null;
     }
@@ -110,7 +110,7 @@ public class Students {
             }
             return results;
         } catch (Exception e) {
-            System.out.println(e + "BookGroupListCheck");
+            System.out.println(e + " => BookGroupListCheck");
         }
         return null;
     }
@@ -123,7 +123,7 @@ public class Students {
                     + "WHERE student_id LIKE " + student_id + ""
                     + "AND class_id LIKE " + class_id);
         } catch (Exception e) {
-            System.out.println(e + "newStudent");
+            System.out.println(e + " => newStudent");
         }
     }
 
@@ -137,7 +137,7 @@ public class Students {
                     + "SET class_id =" + class_id + ", "
                     + "student_id = " + student_id);
         } catch (Exception e) {
-            System.out.println(e + "newStudent");
+            System.out.println(e + " => newStudent");
         }
     }
 
@@ -150,7 +150,7 @@ public class Students {
                     + "birth = " + birth + ""
                     + "WHERE ID LIKE" + ID);
         } catch (Exception e) {
-            System.out.println(e + "editStudent");
+            System.out.println(e + " => editStudent");
         }
     }
 
@@ -164,7 +164,7 @@ public class Students {
                     + "class = 'nope', "
                     + "img = 'nope'");
         } catch (Exception e) {
-            System.out.println(e + "newStudent");
+            System.out.println(e + " => newStudent");
         }
     }
 }

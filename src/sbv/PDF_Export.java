@@ -634,21 +634,21 @@ public class PDF_Export {
     public static PdfPTable billTableFake(String studentID) {
         ArrayList<String> bookArray = new ArrayList();
         bookArray.add("Crossover 2 Workbook");
-        bookArray.add("6.65");
+        bookArray.add("7.14");
         bookArray.add("Max Frisch - Homo faber");
         bookArray.add("5.60");
         bookArray.add("Peter Stamm - AGNES");
         bookArray.add("6.30");
-        bookArray.add("Georg Büchner Danton&#039;s Tod");
+        bookArray.add("Georg Büchner Danton´s Tod");
         bookArray.add("3.50");
         bookArray.add("Mathematik J1+2 Analysis und Stochastik");
         bookArray.add("9.30");
-        bookArray.add("Kosten- und Leistungsrechnung");
-        bookArray.add("10.50");
-        bookArray.add("Investition und Finanzierung");
-        bookArray.add("10.50");
-        bookArray.add("Gesammt");
-        bookArray.add("52.35");
+//        bookArray.add("Kosten- und Leistungsrechnung");
+//        bookArray.add("10.50");
+//        bookArray.add("Investition und Finanzierung");
+//        bookArray.add("10.85");
+        bookArray.add("Gesamt");
+        bookArray.add("31,84");
         
                 
         PdfPTable table = new PdfPTable(2);
