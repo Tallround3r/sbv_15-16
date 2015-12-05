@@ -160,6 +160,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         ausgebenKaufenFeld = new javax.swing.JTextField();
         buecherSchuelerTblAkt = new javax.swing.JButton();
         schuelerExportPreisliste = new javax.swing.JButton();
+        schuelerID = new javax.swing.JLabel();
         buecherTab = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         buecherTbl = new javax.swing.JTable();
@@ -509,6 +510,9 @@ public class Oberflaeche extends javax.swing.JFrame {
             }
         });
 
+        schuelerID.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        schuelerID.setText("ID");
+
         javax.swing.GroupLayout einSchuelerTabLayout = new javax.swing.GroupLayout(einSchuelerTab);
         einSchuelerTab.setLayout(einSchuelerTabLayout);
         einSchuelerTabLayout.setHorizontalGroup(
@@ -521,29 +525,31 @@ public class Oberflaeche extends javax.swing.JFrame {
                         .addGap(188, 188, 188)
                         .addComponent(schuelerZurueckAnzahl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(einSchuelerTabLayout.createSequentialGroup()
-                        .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(schuelerName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, einSchuelerTabLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(schuelerGeburt, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(einSchuelerTabLayout.createSequentialGroup()
-                                .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(schuelerZurueck, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(einSchuelerTabLayout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(81, 81, 81)
-                                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(einSchuelerTabLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(schuelerWeiter, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(einSchuelerTabLayout.createSequentialGroup()
-                                        .addGap(36, 36, 36)
-                                        .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(schuelerKlassenBearbeiten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jScrollPane5))))))
-                        .addGap(0, 1, Short.MAX_VALUE)))
+                        .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(schuelerName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, einSchuelerTabLayout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(schuelerGeburt, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(einSchuelerTabLayout.createSequentialGroup()
+                                    .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(schuelerZurueck, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(einSchuelerTabLayout.createSequentialGroup()
+                                            .addComponent(jLabel7)
+                                            .addGap(81, 81, 81)
+                                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(einSchuelerTabLayout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(schuelerWeiter, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(einSchuelerTabLayout.createSequentialGroup()
+                                            .addGap(36, 36, 36)
+                                            .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(schuelerKlassenBearbeiten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jScrollPane5))))))
+                            .addComponent(schuelerID))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
                 .addContainerGap())
@@ -561,7 +567,7 @@ public class Oberflaeche extends javax.swing.JFrame {
                 .addComponent(schuelerExport, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(schuelerExportPreisliste, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
                 .addComponent(ausgeben, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ausgebenIDFeld, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -575,7 +581,9 @@ public class Oberflaeche extends javax.swing.JFrame {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(einSchuelerTabLayout.createSequentialGroup()
                         .addComponent(schuelerName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
+                        .addGap(2, 2, 2)
+                        .addComponent(schuelerID)
+                        .addGap(18, 18, 18)
                         .addGroup(einSchuelerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(schuelerGeburt, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1142,6 +1150,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         ArrayList<String> data = Classes.classList(momentaneKlasse);
         schuelerId = data.get(schuelerRow * 4 + 3);
         schuelerName.setText(Students.SingelStudent(schuelerId, 1) + " " + Students.SingelStudent(schuelerId, 2));
+        schuelerID.setText(Students.SingelStudent(schuelerId, 0));
         schuelerGeburt.setText(Students.SingelStudent(schuelerId, 3));
         schuelerZurueckAnzahl.setText(Students.CopiesToReturn(schuelerId));
         schuelerKlassenList.setListData(Students.SingelStudentClasses(schuelerId).toArray());
@@ -1199,6 +1208,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         ArrayList<String> data = Classes.classList(momentaneKlasse);
         schuelerId = data.get(schuelerRow * 4 + 3);
         schuelerName.setText(Students.SingelStudent(schuelerId, 1) + " " + Students.SingelStudent(schuelerId, 2));
+        schuelerID.setText(Students.SingelStudent(schuelerId, 0));
         schuelerGeburt.setText(Students.SingelStudent(schuelerId, 3));
         schuelerZurueckAnzahl.setText(Students.CopiesToReturn(schuelerId));
         schuelerKlassenList.setListData(Students.SingelStudentClasses(schuelerId).toArray());//ERROR
@@ -1234,6 +1244,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         ArrayList<String> data = Classes.classList(momentaneKlasse);
         schuelerId = data.get(schuelerRow * 4 + 3);
         schuelerName.setText(Students.SingelStudent(schuelerId, 1) + " " + Students.SingelStudent(schuelerId, 2));
+        schuelerID.setText(Students.SingelStudent(schuelerId, 0));
         schuelerGeburt.setText(Students.SingelStudent(schuelerId, 3));
         schuelerZurueckAnzahl.setText(Students.CopiesToReturn(schuelerId));
         schuelerKlassenList.setListData(Students.SingelStudentClasses(schuelerId).toArray());
@@ -1638,6 +1649,7 @@ public class Oberflaeche extends javax.swing.JFrame {
     private javax.swing.JButton schuelerExport;
     private javax.swing.JButton schuelerExportPreisliste;
     private javax.swing.JLabel schuelerGeburt;
+    private javax.swing.JLabel schuelerID;
     private javax.swing.JButton schuelerKlassenBearbeiten;
     private javax.swing.JList schuelerKlassenList;
     private javax.swing.JList schuelerKlassenListNeu;
