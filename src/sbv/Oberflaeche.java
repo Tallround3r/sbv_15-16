@@ -36,6 +36,7 @@ public class Oberflaeche extends javax.swing.JFrame {
                 Object[] obj = {data.get(i + 1), data.get(i), data.get(i + 2)};
                 schuelerModel.addRow(obj);
             }
+
             schuelerTbl.setModel(schuelerModel);
         }
 
@@ -1145,7 +1146,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         schuelerZurueckAnzahl.setText(Students.CopiesToReturn(schuelerId));
         schuelerKlassenList.setListData(Students.SingelStudentClasses(schuelerId).toArray());
 
-        String col[] = {"N", "Label", "Gekauft", "Ausgegeben", "Bezahlt","Barcode"};
+        String col[] = {"N", "Label", "Gekauft", "Ausgegeben", "Bezahlt", "Barcode"};
         DefaultTableModel schuelerBuecherModel = new DefaultTableModel(col, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -1157,7 +1158,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         ArrayList<String> buecher = Students.BookList(schuelerId);
 
         for (int i = 0; i <= buecher.size() - 5; i = i + 5) {
-            Object[] obj = {i/5+1, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 4)};
+            Object[] obj = {i / 5 + 1, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 4)};
             schuelerBuecherModel.addRow(obj);
         }
         schuelerBuecherTbl.setModel(schuelerBuecherModel);
@@ -1214,7 +1215,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         ArrayList<String> buecher = Students.BookList(schuelerId);
 
         for (int i = 0; i <= buecher.size() - 5; i = i + 5) {
-            Object[] obj = {i/5+1, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 4)};
+            Object[] obj = {i / 5 + 1, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 4)};
             schuelerBuecherModel.addRow(obj);
         }
         schuelerBuecherTbl.setModel(schuelerBuecherModel);
@@ -1249,7 +1250,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         ArrayList<String> buecher = Students.BookList(schuelerId);
 
         for (int i = 0; i <= buecher.size() - 5; i = i + 5) {
-            Object[] obj = {i/5+1, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 4)};
+            Object[] obj = {i / 5 + 1, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 4)};
             schuelerBuecherModel.addRow(obj);
         }
         schuelerBuecherTbl.setModel(schuelerBuecherModel);
@@ -1482,7 +1483,7 @@ public class Oberflaeche extends javax.swing.JFrame {
         ArrayList<String> buecher = Students.BookList(schuelerId);
 
         for (int i = 0; i <= buecher.size() - 5; i = i + 5) {
-            Object[] obj = {i/5+1, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 4)};
+            Object[] obj = {i / 5 + 1, buecher.get(i), buecher.get(i + 1), Date.ToNormal(buecher.get(i + 2)), buecher.get(i + 3), buecher.get(i + 4)};
             schuelerBuecherModel.addRow(obj);
         }
         schuelerBuecherTbl.setModel(schuelerBuecherModel);
