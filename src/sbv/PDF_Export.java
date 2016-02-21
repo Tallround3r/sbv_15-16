@@ -335,7 +335,7 @@ public class PDF_Export {
             ArrayList<String> bookIDs = new ArrayList();
             bookIDs = Books.BookIDList();
             PdfPTable table = new PdfPTable(5);
-    //Tabelle mit 5 Spalten erstellen
+            //Tabelle mit 5 Spalten erstellen
 
             table.setSpacingBefore(25);
 
@@ -375,13 +375,13 @@ public class PDF_Export {
             document.add(table);
             document.newPage();
             PdfPTable table1 = new PdfPTable(5);
-    //Tabelle mit 5 Spalten erstellen
+            //Tabelle mit 5 Spalten erstellen
 
             table1.setSpacingBefore(25);
 
             table1.setSpacingAfter(25);
 
-      //5 Spalten benennen
+            //5 Spalten benennen
             table1.addCell(c2);
 
             table1.addCell(c3);
@@ -405,13 +405,13 @@ public class PDF_Export {
             document.add(table1);
             document.newPage();
             PdfPTable table2 = new PdfPTable(5);
-    //Tabelle mit 5 Spalten erstellen
+            //Tabelle mit 5 Spalten erstellen
 
             table2.setSpacingBefore(25);
 
             table2.setSpacingAfter(25);
 
-      //5 Spalten benennen
+            //5 Spalten benennen
             table2.addCell(c2);
 
             table2.addCell(c3);
@@ -593,7 +593,7 @@ public class PDF_Export {
         } catch (FileNotFoundException | DocumentException e) {
         }
     }
-    
+
     public static void classBillFake(String class_ID, Oberflaeche ob) {
         String pathName2;
         JFileChooser chooser = new JFileChooser();
@@ -630,7 +630,7 @@ public class PDF_Export {
         } catch (FileNotFoundException | DocumentException e) {
         }
     }
-    
+
     public static PdfPTable billTableFake(String studentID) {
         ArrayList<String> bookArray = new ArrayList();
         bookArray.add("Crossover 2 Workbook");
@@ -649,7 +649,7 @@ public class PDF_Export {
 //        bookArray.add("10.85");
         bookArray.add("Gesamt");
         bookArray.add("31,84");
-        
+
                 
         PdfPTable table = new PdfPTable(2);
 

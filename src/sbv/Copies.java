@@ -146,7 +146,7 @@ public class Copies {
 
     public static ArrayList<String> Singlecopy(String copyId) {
         try {
-            ArrayList<String> result = Query.anyQuery("SELECT label, sbm_copieshistory.ID, distributed, collected, buy, notice, paid, forename, surname "
+            ArrayList<String> result = Query.anyQuery("SELECT label, sbm_copieshistory.ID, distributed, collected, buy, notice, paid, forename, surname, sbm_books.ID "
                     + "FROM sbm_copieshistory, sbm_copies, sbm_books, sbm_students "
                     + "WHERE sbm_books.ID = sbm_copies.book_id "
                     + "AND sbm_copieshistory.copy_id = sbm_copies.ID  "
@@ -165,6 +165,10 @@ public class Copies {
                 result.add(6, "im lager");
                 result.add(7, "nicht ausgeliehen");
                 result.add(8, "");
+                result.add(9, Query.getString("SELECT sbm_books.ID "
+                        + "FROM sbm_copies, sbm_books "
+                        + "WHERE sbm_books.ID = sbm_copies.book_id "
+                        + "AND sbm_copies.ID LIKE " + copyId, "sbm_books.ID"));
                 return result;
             } else {
                 /*result = Query.anyQuery("SELECT label, sbm_copieshistory.ID, distributed, collected, buy, notice, paid, forename, surname 

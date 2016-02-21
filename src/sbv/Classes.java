@@ -42,6 +42,18 @@ public class Classes {
         }
         return null;
     }
+    
+    //gets name of all Classes
+    public static ArrayList<String> getClassNameList() {
+        try {
+            return Query.anyQuery("SELECT name "
+                    + "FROM sbm_classes "
+                    + "ORDER BY name");
+        } catch (Exception e) {
+            System.out.println(e + " => getClassNameList");
+        }
+        return null;
+    }
 
     public static ArrayList<String> getClassIDs() {
         try {
