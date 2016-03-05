@@ -1,5 +1,8 @@
 package sbv;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.*;
 import java.time.Clock;
@@ -1523,6 +1526,9 @@ public class Oberflaeche extends javax.swing.JFrame {
 
     private void kopieLöschenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kopieLöschenActionPerformed
         Copies.deleteCopy(momentaneKopie);
+        eineKopieSuchen.requestFocus();
+        eineKopieSuchen.setCaretPosition(0);
+        eineKopieSuchen.selectAll();
     }//GEN-LAST:event_kopieLöschenActionPerformed
 
     private void kopieEinsammelnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kopieEinsammelnActionPerformed
@@ -1531,12 +1537,22 @@ public class Oberflaeche extends javax.swing.JFrame {
 
     private void kopieEinsammelnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kopieEinsammelnMouseClicked
         Copies.collectCopy(momentaneKopie);
-        eineKopieSuchen.setText("");
+        eineKopieSuchen.requestFocus();
+        eineKopieSuchen.setCaretPosition(0);
+        eineKopieSuchen.selectAll();
+        
+        try {
+            Robot Robo = new Robot();
+            Robo.keyPress(KeyEvent.VK_ENTER);
+            Robo.keyRelease(KeyEvent.VK_ENTER);
+        } catch (AWTException aWTException) {
+        }
     }//GEN-LAST:event_kopieEinsammelnMouseClicked
 
     private void eineKopieSuchenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eineKopieSuchenActionPerformed
         momentaneKopie = eineKopieSuchen.getText();
         ArrayList<String> kopie = Copies.Singlecopy(momentaneKopie);
+        eineKopieSuchen.selectAll();
 
         kopieLabel.setText(kopie.get(0));
         kopieFore.setText(kopie.get(7));
